@@ -15,6 +15,10 @@
 //   return cnt;
 // }
 
-export default function countRsFromString(string = "") {
-  return string.split('').filter(character => character === "R").length
-}
+// export default function countRsFromString(string = "") {
+//   return string.split('').filter(character => character === "R").length
+// }
+
+  export default function cntRbt(ls){
+     return  [...ls].filter(item => item === 'R').length
+  }

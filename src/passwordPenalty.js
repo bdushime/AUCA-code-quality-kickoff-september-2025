@@ -5,27 +5,27 @@
  * @param {string} password
  * @returns {number}
  */
+
 export default function penaltyPoints(password) {
-  if (typeof password !== "string") return 0
+  if (typeof password !== "string") return 0;
 
-  let passwordPoints = 0;
-  let simiralLettersCount = 1;
+  let points = 0;
+  let repeatCount = 1;
+  let prev = "";
 
-  const passWordLength = password.length
-
-  for (let i = 1; i < passWordLength; i++) {
-    const CURRENT_CHARACTER = password[i]
-    const PREVIOUS_CHARACTER = password[i - 1]
-
-    if (CURRENT_CHARACTER === PREVIOUS_CHARACTER) {
-      simiralLettersCount++;
-      continue
+  for (let char of password) {
+    if (char === prev) {
+      repeatCount++;
+    } else {
+      if (repeatCount === 2) points += 1;
+      if (repeatCount >= 3) points += 2;
+      repeatCount = 1;
     }
-
-    if (simiralLettersCount === 2) passwordPoints += 1;
-    if (simiralLettersCount >= 3) passwordPoints += 2;
-    simiralLettersCount = 1;
-
+    prev = char;
   }
-  return passwordPoints;
+
+  if (repeatCount === 2) points += 1;
+  if (repeatCount >= 3) points += 2;
+
+  return points;
 }

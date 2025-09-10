@@ -15,5 +15,16 @@
 //   return largest;
 // }
 
-const findLargestNumber = numbers => Math.max(...numbers);
-export default findLargestNumber;
+// const findLargestNumber = numbers => Math.max(...numbers);
+// export default findLargestNumber;
+
+
+export default function findLargestNumber(numbers) {
+  let largest = numbers[0];
+  for (let num of numbers) {
+    if (num > largest) {
+      largest = num;
+    }
+  }
+  return largest;
+}

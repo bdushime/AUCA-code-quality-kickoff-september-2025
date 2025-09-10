@@ -16,11 +16,16 @@
 //   return processedItems;
 // }
 
-export default function getFoodObjects(objects) {
-  const foods = []
-  for (const object of objects) {
-    if (object.type === "Food") foods.push(object)
-  }
+// export default function getFoodObjects(objects) {
+//   const foods = []
+//   for (const object of objects) {
+//     if (object.type === "Food") foods.push(object)
+//   }
 
-  return foods
+//   return foods
+// }
+
+
+export default function getFoodObjects(items) {
+  return items.filter(item => item.type === 'Food');
 }
